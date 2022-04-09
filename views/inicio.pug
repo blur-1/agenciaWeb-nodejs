@@ -1,0 +1,30 @@
+extends ./layout/index
+
+block slider
+    .slider
+        h1 Rio de Janeiro 
+        em aventura
+
+block contenido
+    main.container.mt-5
+        h2.text-center.mb-5 Sobre Nosotros
+        .row.mb-5 
+            .col-md-6 
+                p Lorem ipsum dolor sit amet nom, consectetur adipiscing eli, sed do eiusmod tempor incididunt ut labore et dolore magnacon sectetur tsn adipiscing elit aliqua. Ut enim ad minim veniam, quis nostrud "
+            .col-md-6 
+                img(src="/img/inicio_nosotros.jpg", class="img-fluid")
+
+        include ./layout/bloque_viajes
+
+    .descuento
+        .container 
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% descuento 
+                        p.titulo Viaje a Canada
+                        p.fecha Todo mayo 2022
+                        p.precio $2.500 USD
+    .container 
+        h2.mt-5.text-center Testimonios 
+        include ./layout/bloque_testimonios
