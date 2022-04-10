@@ -2,14 +2,13 @@ import { Viaje } from "../models/Viaje.js";
 import { Testimonio } from "../models/Testimoniales.js";
 
 const paginaInicio = async (req,res) =>{
-    //consultar 3 viajes del modelo
+    //consulta 3 viajes del modelo
     const promiseBd = [];
     promiseBd.push( Viaje.findAll({ limit:3 }) );
     promiseBd.push( Testimonio.findAll({ limit:3 }) );
 
     try { 
         const resultado = await Promise.all( promiseBd);
-
         res.render('inicio', {
             pagina: 'Inicio',
             clase: 'home',
@@ -17,9 +16,8 @@ const paginaInicio = async (req,res) =>{
             testimonios: resultado[1]
         });
     } catch (error) {
-        
+        console.log(error);
     }
-  
 }
 const paginaNosotros = (req,res) =>{
     res.render('nosotros',{
@@ -46,9 +44,8 @@ const paginaTestimonios = async (req, res)=>{
     } catch (error) {
         console.log(error);
     }
-    
 }
-// muestra viaje por  / slug
+// muestra viaje por / slug
 const paginaInfoViaje = async (req,res)=>{
     const { slug } = req.params;
     try{

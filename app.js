@@ -8,13 +8,13 @@ const app = express();
 
 //conexion a la BD
 db.authenticate()
-    .then( ()=> console.log('exito bd agencia  conectada'))
+    .then( ()=> console.log('exito bd agencia conectada'))
     .catch( error => console.log('error'));
 
 //habilitar PUG
 app.set('view engine','pug')
 
-//Obterne Año Actual
+//obterner año Actual
 app.use((req, res, next) =>{
     const year = new Date();
     res.locals.varYear = year.getFullYear();
@@ -22,16 +22,16 @@ app.use((req, res, next) =>{
     return next();
 });
 
-//Agregar bodyParser para leer los datos del body del formulario
+//agregar bodyParser para leer los datos del body del form
 app.use(express.urlencoded({extended: true}));
 
 //definir carpeta PUBLIC , archivos estaticos de express
 app.use(express.static('public'));
 
-//agregar ROUTER
+//agrega ROUTER
 app.use('/', router);
 
-//Puerto y host para produccion deploy
+//puerto y host para deploy produccion
 const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT|| 3000;
 

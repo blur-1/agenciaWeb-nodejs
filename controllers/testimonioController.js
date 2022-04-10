@@ -1,7 +1,7 @@
 import {Testimonio} from "../models/Testimoniales.js";
 
 const guardarTestimonio = async(req, res)=>{
-    //validaciones
+    //validando
     const{ nombre, correo, comentario } = req.body;
     const errores = [];
 
@@ -16,9 +16,9 @@ const guardarTestimonio = async(req, res)=>{
     }
     
     if(errores.length > 0){
-        //consultar testimonios existente
+        //consultar testimonios existentes
         const testimonios = await Testimonio.findAll();
-        //mostrat la vista con errores
+        //mostrar la vista con los errores
         res.render('testimonios', {
             pagina:'Testimonios',
             errores,
